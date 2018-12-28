@@ -14,7 +14,7 @@ The _**React Server**_ is responsible displaying all of the data onto the webpag
 
 ## Streaming Server
 
-The streaming server is an RTMP node media server that is hooked up to the client and allows users to stream video for the client to display. More information on this server is located here: `https://github.com/illuspas/Node-Media-Server`
+The _**Streaming Server**_ is an RTMP node media server that is hooked up to the client and allows users to stream video for the client to display. More information on this server is located here: `https://github.com/illuspas/Node-Media-Server`
 
 ## Getting Started
 
