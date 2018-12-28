@@ -1,6 +1,6 @@
 # Welcome to Streamy
 
-## What's Rails?
+## What's Streamy?
 
 Streamy is a web-application that uses CRUD to create, read, update, and delete streams, you can start the three servers and stream video to your site
 
