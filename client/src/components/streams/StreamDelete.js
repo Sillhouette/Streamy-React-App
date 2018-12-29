@@ -38,8 +38,6 @@ class StreamDelete extends React.Component {
         >
           Delete
         </button>
-        //We use a link tag here because our cancel button simply redirects to
-        our home page
         <Link to="/" className="ui button">
           Cancel
         </Link>
