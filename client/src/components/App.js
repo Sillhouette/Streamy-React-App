@@ -1,3 +1,4 @@
+//Start imports
 import React from "react";
 import { Router, Route, Switch } from "react-router-dom";
 import Header from "./Header";
@@ -8,6 +9,9 @@ import StreamShow from "./streams/StreamShow";
 import StreamList from "./streams/StreamList";
 import history from "../history";
 
+/**
+ * App is a functional component that contains the header and react router component
+ **/
 const App = () => {
   return (
     <div className="ui container">
@@ -27,4 +31,7 @@ const App = () => {
   );
 };
 
+/**
+ * export our App component
+ **/
 export default App;
