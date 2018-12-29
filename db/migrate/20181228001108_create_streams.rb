@@ -1,3 +1,6 @@
+##
+# => Create our streams table with keys of title, description, and userId
+##
 class CreateStreams < ActiveRecord::Migration[5.2]
   def change
     create_table :streams do |t|
