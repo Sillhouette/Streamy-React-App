@@ -1,3 +1,8 @@
+/**
+ * This is all code pulled from https://www.npmjs.com/package/node-media-server
+ * It is used to run the server that streams are sent to from OBS
+ * and received from for our application
+ **/
 const { NodeMediaServer } = require("node-media-server");
 
 const config = {
