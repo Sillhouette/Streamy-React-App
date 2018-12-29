@@ -1,3 +1,6 @@
+/**
+ * Store all the types in variable so we trip an error in case of a typo
+ **/
 export const SIGN_IN = "SIGN_IN";
 export const SIGN_OUT = "SIGN_OUT";
 export const CREATE_STREAM = "CREATE_STREAM";
