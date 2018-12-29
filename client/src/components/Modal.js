@@ -1,6 +1,11 @@
+//Start imports
 import React from "react";
 import ReactDOM from "react-dom";
 
+/**
+ * Modal is a functional component that displays a generic modal used to prompt
+ * the user to take some form of action
+ **/
 const Modal = props => {
   return ReactDOM.createPortal(
     <div className="ui dimmer modals visible active" onClick={props.onDismiss}>
@@ -17,4 +22,7 @@ const Modal = props => {
   );
 };
 
+/**
+ * export our Modal component
+ **/
 export default Modal;
