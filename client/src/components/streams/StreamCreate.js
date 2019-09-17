@@ -2,6 +2,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { createStream } from "../../actions";
+import { Container, Segment } from "semantic-ui-react";
 import StreamForm from "./StreamForm";
 
 /**
@@ -22,10 +23,17 @@ class StreamCreate extends React.Component {
    **/
   render() {
     return (
-      <div>
-        <h3>Create a Stream</h3>
-        <StreamForm onSubmit={this.onSubmit} />
-      </div>
+      <Container
+        style={{
+          backgroundColor: "rgba(0, 0, 0, 0.67",
+          color: "white"
+        }}
+      >
+        <Segment basic>
+          <h3>Create a Stream</h3>
+          <StreamForm onSubmit={this.onSubmit} />
+        </Segment>
+      </Container>
     );
   }
 }

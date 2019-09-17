@@ -38,7 +38,7 @@ class StreamsController < ApplicationController
 
     # => Whitelist params before passing them to an action
     def stream_params
-      params.permit(:title, :userId, :description, :stream)
+      params.permit(:title, :userId, :description, :stream, :image_uri)
     end
 
     # => Fetch a stream from the database to be used in a action

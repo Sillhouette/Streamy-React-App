@@ -1,5 +1,6 @@
 //Start imports
 import React from "react";
+import { Segment } from "semantic-ui-react";
 import { Field, reduxForm } from "redux-form";
 
 /**
@@ -27,7 +28,7 @@ class StreamForm extends React.Component {
     const className = `field ${meta.error && meta.touched ? "error" : ""}`;
     return (
       <div className={className}>
-        <label>{label}</label>
+        <label style={this.textStyles}>{label}</label>
         <input {...input} autoComplete="off" />
         {this.renderError(meta)}
       </div>
@@ -41,23 +42,36 @@ class StreamForm extends React.Component {
     this.props.onSubmit(formValues);
   };
 
+  textStyles = { color: "white" };
+
   /**
    * render returns the layout of the form, filled with default values if they exist
    **/
   render() {
     return (
-      <form
-        onSubmit={this.props.handleSubmit(this.onSubmit)}
-        className="ui form error"
-      >
-        <Field name="title" label="Enter Title:" component={this.renderInput} />
-        <Field
-          name="description"
-          label="Enter Description:"
-          component={this.renderInput}
-        />
-        <button className="ui button primary">Submit</button>
-      </form>
+      <Segment basic>
+        <form
+          onSubmit={this.props.handleSubmit(this.onSubmit)}
+          className="ui form error"
+        >
+          <Field
+            name="title"
+            label="Enter Title:"
+            component={this.renderInput}
+          />
+          <Field
+            name="description"
+            label="Enter Description:"
+            component={this.renderInput}
+          />
+          <Field
+            name="image_uri"
+            label="Enter Image URL:"
+            component={this.renderInput}
+          />
+          <button className="ui button primary">Submit</button>
+        </form>
+      </Segment>
     );
   }
 }
@@ -69,10 +83,21 @@ const validate = formValues => {
   const errors = {};
   if (!formValues.title) {
     errors.title = "You must enter a title";
+  } else {
+    if (formValues.title.length > 45) {
+      errors.title =
+        "You must have less then 45 characters in your description";
+    }
   }
   if (!formValues.description) {
     errors.description = "You must enter a description";
+  } else {
+    if (formValues.description.length > 45) {
+      errors.description =
+        "You must have less then 45 characters in your description";
+    }
   }
+
   return errors;
 };
 

@@ -8,6 +8,12 @@ import { signIn, signOut } from "../actions";
  * Google's authentication API
  **/
 class GoogleAuth extends React.Component {
+  buttonStyles = {
+    background: "#C4C4C4",
+    borderRadius: "17px",
+    color: "black"
+  };
+
   /**
    * componentDidMount loads Google's API into our window, authenticates our application
    * to their servers then checks if our user is signed into our application yet
@@ -61,14 +67,22 @@ class GoogleAuth extends React.Component {
       return null;
     } else if (this.props.isSignedIn) {
       return (
-        <button className="ui blue google button" onClick={this.onSignOutClick}>
+        <button
+          className="ui  button"
+          style={this.buttonStyles}
+          onClick={this.onSignOutClick}
+        >
           <i className="google icon" />
           Sign Out
         </button>
       );
     } else {
       return (
-        <button className="ui blue google button" onClick={this.onSignInClick}>
+        <button
+          className="ui button"
+          style={this.buttonStyles}
+          onClick={this.onSignInClick}
+        >
           <i className="google icon" />
           Sign in with Google
         </button>

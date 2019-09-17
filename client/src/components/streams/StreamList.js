@@ -3,11 +3,19 @@ import React from "react";
 import { connect } from "react-redux";
 import { fetchStreams } from "../../actions";
 import { Link } from "react-router-dom";
+import { Grid } from "semantic-ui-react";
+import StreamListItem from "./StreamListItem";
 
 /**
  * Streamlist is a class-based component that fetches and displays the list of our streams
  **/
 class StreamList extends React.Component {
+  buttonStyles = {
+    background: "#C4C4C4",
+    borderRadius: "17px",
+    color: "black"
+  };
+
   /**
    * componentDidMount calls the fetchStreams action to retreive a list of Streams
    * from our rails api backend
@@ -17,44 +25,17 @@ class StreamList extends React.Component {
   }
 
   /**
-   * renderAdmin renders administrative buttons on a given stream if the current user
-   * is the user that created the stream
-   **/
-  renderAdmin(stream) {
-    if (stream.userId === this.props.currentUserId) {
-      return (
-        <div className="right floated content">
-          <Link to={`streams/edit/${stream.id}`} className="ui button primary">
-            Edit
-          </Link>
-          <Link
-            to={`streams/delete/${stream.id}`}
-            className="ui button negative"
-          >
-            Delete
-          </Link>
-        </div>
-      );
-    }
-  }
-
-  /**
    * renderList loops over the streams object in this components props and returns
    * a list of the streams and their properties to be displayed
    **/
   renderList() {
     return this.props.streams.map(stream => {
       return (
-        <div className="item" key={stream.id}>
-          {this.renderAdmin(stream)}
-          <i className="large middle aligned icon camera" />
-          <div className="content">
-            <Link to={`/streams/${stream.id}`} className="header">
-              {stream.title}
-            </Link>
-            <div className="description">{stream.description}</div>
-          </div>
-        </div>
+        <StreamListItem
+          stream={stream}
+          currentUserId={this.props.currentUserId}
+          key={stream.id}
+        />
       );
     });
   }
@@ -65,8 +46,12 @@ class StreamList extends React.Component {
   renderCreate() {
     if (this.props.isSignedIn) {
       return (
-        <div style={{ textAlign: "right" }}>
-          <Link to="/streams/new" className="ui button primary">
+        <div style={{ textAlign: "right", float: "right" }}>
+          <Link
+            style={this.buttonStyles}
+            to="/streams/new"
+            className="ui button primary"
+          >
             Create Stream
           </Link>
         </div>
@@ -79,10 +64,16 @@ class StreamList extends React.Component {
    **/
   render() {
     return (
-      <div>
-        <h2>Streams:</h2>
-        <div className="ui celled list">{this.renderList()}</div>
-        {this.renderCreate()}
+      <div
+        className="ui basic segment"
+        style={{
+          backgroundColor: "rgba(0, 0, 0, 0.67"
+        }}
+      >
+        <h2 style={{ color: "white" }}>Streams: {this.renderCreate()}</h2>
+        <Grid style={{ width: "100%" }} stackable centered columns="3">
+          {this.renderList()}
+        </Grid>
       </div>
     );
   }

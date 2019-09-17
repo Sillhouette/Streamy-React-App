@@ -2,6 +2,7 @@
 import React from "react";
 import { Router, Route, Switch } from "react-router-dom";
 import Header from "./Header";
+import Footer from "./Footer";
 import StreamCreate from "./streams/StreamCreate";
 import StreamEdit from "./streams/StreamEdit";
 import StreamDelete from "./streams/StreamDelete";
@@ -14,7 +15,17 @@ import history from "../history";
  **/
 const App = () => {
   return (
-    <div className="ui container">
+    <div
+      className="ui container"
+      style={{
+        paddingBottom: "100px",
+        width: "75%",
+        minHeight: "100vh",
+        overflow: "hidden",
+        display: "block",
+        position: "relative"
+      }}
+    >
       <Router history={history}>
         <div>
           <Header />

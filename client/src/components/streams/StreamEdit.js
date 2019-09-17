@@ -1,6 +1,7 @@
 //Start imports
 import _ from "lodash";
 import React from "react";
+import { Segment } from "semantic-ui-react";
 import { connect } from "react-redux";
 import { fetchStream, editStream } from "../../actions";
 import StreamForm from "./StreamForm";
@@ -33,14 +34,25 @@ class StreamEdit extends React.Component {
       return <div>Loading...</div>;
     }
     return (
-      <div>
+      <Segment
+        basic
+        style={{
+          backgroundColor: "rgba(0, 0, 0, 0.67",
+          color: "white"
+        }}
+      >
         <h3>Edit a Stream</h3>
         <StreamForm
           //We use the lodash library to pick out the values of the stream to fill into the form
-          initialValues={_.pick(this.props.stream, "title", "description")}
+          initialValues={_.pick(
+            this.props.stream,
+            "title",
+            "description",
+            "image_uri"
+          )}
           onSubmit={this.onSubmit}
         />
-      </div>
+      </Segment>
     );
   }
 }

@@ -1,5 +1,6 @@
 //Start imports
 import React from "react";
+import { Segment } from "semantic-ui-react";
 import { connect } from "react-redux";
 import { fetchStream } from "../../actions";
 import flv from "flv.js";
@@ -72,11 +73,17 @@ class StreamShow extends React.Component {
     const { title, description } = this.props.stream;
 
     return (
-      <div>
+      <Segment
+        basic
+        style={{
+          backgroundColor: "rgba(0, 0, 0, 0.67",
+          color: "white"
+        }}
+      >
         <h1>{title}</h1>
         <video ref={this.videoRef} style={{ width: "100%" }} controls />
         <h5>{description}</h5>
-      </div>
+      </Segment>
     );
   }
 }
