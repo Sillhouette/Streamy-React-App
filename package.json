@@ -4,7 +4,7 @@
     "node": "10.3.0"
   },
   "scripts": {
-    "build": "cd client && npm install && npm run build && cd rtmpserver && npm install && npm run build && cd .. && cd ..",
+    "build": "cd client && npm install && npm run build && cd .. && cd rtmpserver && npm install && npm run build && cd ..",
     "deploy": "cp -a client/build/. public/ && cp -a client/rtmpserver/build/. public/",
     "postinstall": "npm run build && npm run deploy && echo 'Client built!'"
   }
