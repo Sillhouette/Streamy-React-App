@@ -1,6 +1,6 @@
 //Start imports
 import React from "react";
-import { Button } from "semantic-ui-react";
+import { Button, Icon } from "semantic-ui-react";
 import { connect } from "react-redux";
 import { signIn, signOut } from "../actions";
 
