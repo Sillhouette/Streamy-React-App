@@ -1,5 +1,6 @@
 //Start imports
 import React from "react";
+import { Button } from "semantic-ui-react";
 import { connect } from "react-redux";
 import { signIn, signOut } from "../actions";
 
@@ -67,25 +68,21 @@ class GoogleAuth extends React.Component {
       return null;
     } else if (this.props.isSignedIn) {
       return (
-        <button
-          className="ui  button"
-          style={this.buttonStyles}
-          onClick={this.onSignOutClick}
-        >
-          <i className="google icon" />
+        <Button style={this.buttonStyles} onClick={this.onSignOutClick}>
+          <Icon className="google" />
           Sign Out
-        </button>
+        </Button>
       );
     } else {
       return (
-        <button
+        <Button
           className="ui button"
           style={this.buttonStyles}
           onClick={this.onSignInClick}
         >
-          <i className="google icon" />
+          <Icon className="google" />
           Sign in with Google
-        </button>
+        </Button>
       );
     }
   }
