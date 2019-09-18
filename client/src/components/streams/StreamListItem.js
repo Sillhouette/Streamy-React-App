@@ -48,7 +48,7 @@ class StreamListItem extends React.Component {
 
   callApi() {
     console.log("a");
-    fetch("http://localhost:3000/api/seams")
+    fetch("/api/seams")
       .then(function(response) {
         console.log("b");
         return response.json();
