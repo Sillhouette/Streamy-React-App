@@ -23,7 +23,7 @@ module NewsHub
     config.load_defaults 5.2
     config.middleware.insert_before 0, Rack::Cors do
       allow do
-         origins 'http://134.209.8.173'
+         origins 'http://www.stream-source.net'
          resource '*', :headers => :any, :methods => [:get, :post, :options]
        end
     end
