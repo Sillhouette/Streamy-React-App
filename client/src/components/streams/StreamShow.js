@@ -60,6 +60,7 @@ class StreamShow extends React.Component {
     });
     this.player.attachMediaElement(this.videoRef.current);
     this.player.load();
+    this.player.play();
   }
 
   /**
