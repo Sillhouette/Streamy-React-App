@@ -16,6 +16,8 @@ gem 'puma', '~> 3.11'
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
+gem "passenger", ">= 5.0.25", require: "phusion_passenger/rack_handler"
+
 gem 'foreman', '~> 0.82.0'
 gem 'responders'
 gem 'pry'
