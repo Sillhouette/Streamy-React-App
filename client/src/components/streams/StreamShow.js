@@ -60,15 +60,33 @@ class StreamShow extends React.Component {
     });
     this.player.attachMediaElement(this.videoRef.current);
     this.player.load();
-    const isPlaying =
-      this.player.currentTime > 0 &&
-      !this.player.paused &&
-      !this.player.ended &&
-      this.player.readyState > 2;
+    // Initializing values
+    let isPlaying = true;
 
-    if (!isPlaying) {
-      this.player.play();
+    // On video playing toggle values
+    this.player.onplaying = function() {
+      isPlaying = true;
+    };
+
+    // On video pause toggle values
+    this.player.onpause = function() {
+      isPlaying = false;
+    };
+
+    // Play video function
+    function playVid() {
+      if (video.paused && !isPlaying) {
+        this.player.play();
+      }
     }
+
+    // Pause video function
+    function pauseVid() {
+      if (!video.paused && isPlaying) {
+        this.player.pause();
+      }
+    }
+    playVid();
   }
 
   /**
