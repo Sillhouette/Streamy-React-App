@@ -60,33 +60,7 @@ class StreamShow extends React.Component {
     });
     this.player.attachMediaElement(this.videoRef.current);
     this.player.load();
-    // Initializing values
-    let isPlaying = true;
-
-    // On video playing toggle values
-    this.player.onplaying = function() {
-      isPlaying = true;
-    };
-
-    // On video pause toggle values
-    this.player.onpause = function() {
-      isPlaying = false;
-    };
-
-    // Play video function
-    function playVid() {
-      if (this.player.paused && !isPlaying) {
-        this.player.play();
-      }
-    }
-
-    // Pause video function
-    function pauseVid() {
-      if (!this.player.paused && isPlaying) {
-        this.player.pause();
-      }
-    }
-    playVid();
+    this.player.play();
   }
 
   /**
