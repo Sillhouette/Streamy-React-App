@@ -75,14 +75,14 @@ class StreamShow extends React.Component {
 
     // Play video function
     function playVid() {
-      if (video.paused && !isPlaying) {
+      if (this.player.paused && !isPlaying) {
         this.player.play();
       }
     }
 
     // Pause video function
     function pauseVid() {
-      if (!video.paused && isPlaying) {
+      if (!this.player.paused && isPlaying) {
         this.player.pause();
       }
     }
