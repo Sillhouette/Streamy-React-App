@@ -61,13 +61,13 @@ class StreamShow extends React.Component {
     this.player.attachMediaElement(this.videoRef.current);
     this.player.load();
     const isPlaying =
-      video.currentTime > 0 &&
-      !video.paused &&
-      !video.ended &&
-      video.readyState > 2;
+      this.player.currentTime > 0 &&
+      !this.player.paused &&
+      !this.player.ended &&
+      this.player.readyState > 2;
 
     if (!isPlaying) {
-      video.play();
+      this.player.play();
     }
   }
 
