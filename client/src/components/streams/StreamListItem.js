@@ -69,6 +69,7 @@ class StreamListItem extends React.Component {
           marginRight: "auto",
           maxHeight: "200px"
         }}
+        alt={`Stream ${stream.id} image`}
         src={stream.image_uri}
       />
     ) : null;
