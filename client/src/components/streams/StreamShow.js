@@ -10,7 +10,6 @@ import flv from "flv.js";
  **/
 
 class StreamShow extends React.Component {
-  error = false;
   /**
    * constructor initiates our component and sets a videoRef variable for our
    * video object
@@ -18,6 +17,7 @@ class StreamShow extends React.Component {
   constructor(props) {
     super(props);
 
+    this.error = false;
     this.videoRef = React.createRef();
   }
 
