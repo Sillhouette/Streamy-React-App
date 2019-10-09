@@ -87,7 +87,9 @@ class StreamShow extends React.Component {
         }}
       >
         <h1>{title}</h1>
-        <video ref={this.videoRef} style={{ width: "100%" }} controls />
+        <video ref={this.videoRef} style={{ width: "100%" }} controls>
+          <div>Your browser does not support HTML5 video.</div>
+        </video>
         <h5>{description}</h5>
       </Segment>
     );
