@@ -8,6 +8,9 @@ import flv from "flv.js";
 /**
  * StreamShow is a class-based compnent that displays a stream to our user
  **/
+
+let error = false;
+
 class StreamShow extends React.Component {
   /**
    * constructor initiates our component and sets a videoRef variable for our
@@ -62,9 +65,17 @@ class StreamShow extends React.Component {
       this.player.load();
       //this.player.play();
       setTimeout(() => this.player.play(), 100);
-    } catch (error) {
-      console.log(error);
+    } catch (e) {
+      error = true;
       return;
+    }
+  }
+
+  renderPlayer() {
+    if (error) {
+      return <div>Your browser does not support video playback</div>;
+    } else {
+      return <video ref={this.videoRef} style={{ width: "100%" }} controls />;
     }
   }
 
@@ -87,9 +98,7 @@ class StreamShow extends React.Component {
         }}
       >
         <h1>{title}</h1>
-        <video ref={this.videoRef} style={{ width: "100%" }} controls>
-          <div>Your browser does not support HTML5 video.</div>
-        </video>
+        {this.renderPlayer()}
         <h5>{description}</h5>
       </Segment>
     );
