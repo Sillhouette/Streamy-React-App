@@ -53,15 +53,19 @@ class StreamShow extends React.Component {
     if (this.player || !this.props.stream) {
       return;
     }
-
-    this.player = flv.createPlayer({
-      type: "flv",
-      url: `https://streams.stream-source.net:8443/live/${id}.flv`
-    });
-    this.player.attachMediaElement(this.videoRef.current);
-    this.player.load();
-    //this.player.play();
-    setTimeout(() => this.player.play(), 100);
+    try {
+      this.player = flv.createPlayer({
+        type: "flv",
+        url: `https://streams.stream-source.net:8443/live/${id}.flv`
+      });
+      this.player.attachMediaElement(this.videoRef.current);
+      this.player.load();
+      //this.player.play();
+      setTimeout(() => this.player.play(), 100);
+    } catch (error) {
+      console.log(error);
+      return;
+    }
   }
 
   /**
